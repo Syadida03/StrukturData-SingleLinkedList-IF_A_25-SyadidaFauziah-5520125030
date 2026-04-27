@@ -4,6 +4,7 @@ using namespace std;
 struct Node {
     int data;
     struct Node *next;
+    struct Node *prev;
 };
 
 Node *head = NULL;
@@ -35,11 +36,14 @@ void inputData() {
         Node *nodeBaru = new Node;
         nodeBaru->data = nilai;
         nodeBaru->next = NULL;
+        nodeBaru->prev = NULL; // Inisialisasi prev
+        
         if(head == NULL) {
             head = nodeBaru;
             tail = nodeBaru;
         } else {
             tail->next = nodeBaru;
+            nodeBaru->prev = tail; // Sambungkan prev ke node sebelumnya
             tail = nodeBaru;
         }
     }
@@ -61,6 +65,7 @@ void tambahDataTail() {
             temp = temp->next;
         }
        temp->next = nodeBaru;
+       nodeBaru->prev = temp; // Sambungkan prev ke temp (node terakhir lama)
     }
 }
 
