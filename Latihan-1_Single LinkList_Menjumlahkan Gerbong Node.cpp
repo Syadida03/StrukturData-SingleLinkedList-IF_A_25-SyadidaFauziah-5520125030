@@ -46,7 +46,6 @@ int main(){
 	nodeSekarang = node3;
 	i = 1;
 	
-
 	while(nodeSekarang != NULL){
 		cout << "Data ke " << i++ << ": " << nodeSekarang->data << endl;
 		nodeSekarang = nodeSekarang->prev;
